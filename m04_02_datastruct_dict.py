@@ -12,7 +12,7 @@ account_no = "01123581321"
 print("name:", name, "   account:", account_no,  "   original balance:",  "$" + str(balance))
 
 charges_list = []
-for charge_string in open("m00_charges_file"):
+for charge_string in open("m00_charges-file"):
     charge_info_list = charge_string.strip().split(',')
 
     charge_info = dict()
