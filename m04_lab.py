@@ -20,6 +20,57 @@ with open('m04_lab_profiles','r') as profiles_file:
         profiles_dict[profile_info[0]] = profile
         profiles_list.append(profile)
 
-print(profile)
+
+print("")
+print("===================================== Unsorted Profiles ========================================================")
+print("Name                  Location              Status        Employer                    Job")
+print("--------------------  --------------------  -----------   ------------------------    --------------------------")
+
+for profile in profiles_list:
+
+    print("{:20}  {:20}  {:12}  {:26}  {:20}".format(profile['name'], profile['location'], profile['status'],
+                                                     profile['employer'], profile['job']))
+
+print("")
+print("===================================== Sorted by Location ========================================================")
+print("Name                  Location              Status        Employer                    Job")
+print("--------------------  --------------------  -----------   ------------------------    --------------------------")
+
+for profile in sorted(profiles_list, key=itemgetter('location')):
+
+    print("{:20}  {:20}  {:12}  {:26}  {:20}".format(profile['name'], profile['location'], profile['status'],
+                                                     profile['employer'], profile['job']))
+
+
+print("")
+print("===================================== Sorted by Employer =======================================================")
+print("Name                  Location              Status        Employer                    Job")
+print("--------------------  --------------------  -----------   ------------------------    --------------------------")
+
+for profile in sorted(profiles_list, key=itemgetter('employer')):
+
+    print("{:20}  {:20}  {:12}  {:26}  {:20}".format(profile['name'], profile['location'], profile['status'],
+                                                     profile['employer'], profile['job']))
+
+
+print("\n\n")
+print("Name                  Location              Status        Employer                    Job")
+print("--------------------  --------------------  -----------   ------------------------    --------------------------")
+while True:
+
+    name = input("Enter name: ")
+    if len(name) == 0:
+        break
+
+    if name not in profiles_dict:
+        print("I don't know anyone by the name of {}".format(name))
+        continue
+
+    profile = profiles_dict[name]
+    print("{:20}  {:20}  {:12}  {:26}  {:20}".format(profile['name'], profile['location'], profile['status'],
+                                                     profile['employer'], profile['job']))
+
+                                                     
+
 
 
